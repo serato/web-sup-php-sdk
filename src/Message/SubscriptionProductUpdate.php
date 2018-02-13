@@ -57,4 +57,17 @@ class SubscriptionProductUpdate extends AbstractMessage
     {
         return $this->getParam(self::EXPIRY);
     }
+
+    /**
+     * Set expiry date for subscription with the given format
+     *
+     * @param string $expiryDate
+     * @param $dateFormat
+     *
+     *  @return string
+     */
+    public function setExpiryWithDateFormat($expiryDate, $dateFormat = 'Y-m-d')
+    {
+        return $this->setExpiry(gmdate($dateFormat, $expiryDate));
+    }
 }

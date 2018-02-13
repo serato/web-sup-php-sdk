@@ -9,6 +9,7 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
 class PermanentLicense extends AbstractMessage
 {
     const LICENSE_TYPE_ID = 'license-type-id';
+    const LICENSE_ID = 'license-id';
     const LICENSE_ACTION = 'license-action';
 
     const ADD = 'license-action-add';
@@ -65,5 +66,26 @@ class PermanentLicense extends AbstractMessage
     public function getLicenseAction()
     {
         return $this->getParam(self::LICENSE_ACTION);
+    }
+
+    /**
+     * Set the license id
+     *
+     * @param string $licenseId
+     * @return self
+     */
+    public function setLicenseId($licenseId)
+    {
+        return $this->setParam(self::LICENSE_ID, $licenseId);
+    }
+
+    /**
+     * Get the license id
+     *
+     * @return string
+     */
+    public function getLicenseId()
+    {
+        return $this->getParam(self::LICENSE_ID);
     }
 }
