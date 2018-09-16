@@ -158,6 +158,7 @@ class UserUpdate extends AbstractMessage
      *      slef::IMPLICIT_OPT_IN
      *      slef::EXPLICIT_OPT_OUT
      *      slef::EXPLICIT_OPT_IN
+     *      self::NO_VALUE_CONTACT_ME
      * @return self
      */
     public function setGlobalContactMe($globalContactMe)
