@@ -24,6 +24,14 @@ class InteractivePurchase extends AbstractMessage
     const ORDER_DATE = 'order_date';
     const ORDER_ID = 'order_id';
 
+    /*
+        NOTE: This is a stop gap implementation - ideally these are already populated from other events in the SUP
+        app, but they aren't. We require these to send over to Yotpo so we need them at the same time that orders
+        come through.
+    */
+    const FIRST_NAME = 'first_name';
+    const LAST_NAME = 'last_name';
+
     /**
      * Creates a new message instance
      *
@@ -114,5 +122,49 @@ class InteractivePurchase extends AbstractMessage
     public function getOrderId(): int
     {
         return $this->getParam(self::ORDER_ID);
+    }
+
+    /**
+     * Sets the first name of the customer who made the purchase
+     *
+     * @param string $firstName
+     * @return self
+     */
+    public function setFirstName(string $firstName): self
+    {
+        $this->setParam(self::FIRST_NAME, $firstName);
+        return $this;
+    }
+
+    /**
+     * Gets the first name of the customer who made the purchase
+     *
+     * @return string
+     */
+    public function getFirstName(): string
+    {
+        return $this->getParam(self::FIRST_NAME);
+    }
+
+    /**
+     * Sets the last name of the customer who made the purchase
+     *
+     * @param string $lastName
+     * @return self
+     */
+    public function setLastName(string $lastName): self
+    {
+        $this->setParam(self::LAST_NAME, $lastName);
+        return $this;
+    }
+
+    /**
+     * Gets the last name of the customer who made the purchase
+     *
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return $this->getParam(self::LAST_NAME);
     }
 }

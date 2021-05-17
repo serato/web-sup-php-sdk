@@ -23,16 +23,22 @@ class InteractivePurchaseTest extends PHPUnitTestCase
                 "price"      => 500.20
             ]
         ];
+        $firstName = 'Ben';
+        $lastName = 'Swolo';
 
         $interactivePurchase = InteractivePurchase::create($userId)
                                 ->setProducts($products)
                                 ->setOrderDate($orderDate)
-                                ->setOrderId($orderId);
+                                ->setOrderId($orderId)
+                                ->setFirstName($firstName)
+                                ->setLastName($lastName);
         $this->assertEquals('InteractivePurchase', $interactivePurchase->getType());
         $this->assertEquals($interactivePurchase->getUserId(), $userId);
         $this->assertEquals($interactivePurchase->getProducts(), $products);
         $this->assertEquals($interactivePurchase->getOrderDate(), $orderDate);
         $this->assertEquals($interactivePurchase->getOrderId(), $orderId);
+        $this->assertEquals($interactivePurchase->getFirstName(), $firstName);
+        $this->assertEquals($interactivePurchase->getLastName(), $lastName);
     }
 
     public function testSetters1()
@@ -40,6 +46,8 @@ class InteractivePurchaseTest extends PHPUnitTestCase
         $userId = 124;
         $orderDate = '2021-03-02T00:00:00+00:00';
         $orderId = 26;
+        $firstName = 'Jar Jar';
+        $lastName = 'Binks';
         $products = [
             [
                 "product_type_id" => 16,
@@ -54,7 +62,9 @@ class InteractivePurchaseTest extends PHPUnitTestCase
         $interactivePurchase = InteractivePurchase::create($userId, [
             "products" => $products,
             "order_date" => $orderDate,
-            "order_id" => $orderId
+            "order_id" => $orderId,
+            "first_name" => $firstName,
+            "last_name" => $lastName
         ]);
 
         $this->assertEquals('InteractivePurchase', $interactivePurchase->getType());
@@ -62,5 +72,7 @@ class InteractivePurchaseTest extends PHPUnitTestCase
         $this->assertEquals($interactivePurchase->getProducts(), $products);
         $this->assertEquals($interactivePurchase->getOrderDate(), $orderDate);
         $this->assertEquals($interactivePurchase->getOrderId(), $orderId);
+        $this->assertEquals($interactivePurchase->getFirstName(), $firstName);
+        $this->assertEquals($interactivePurchase->getLastName(), $lastName);
     }
 }
