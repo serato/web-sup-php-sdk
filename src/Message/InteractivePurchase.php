@@ -73,9 +73,9 @@ class InteractivePurchase extends AbstractMessage
     /**
      * Get the Products from an interactive purchase
      *
-     * @return array
+     * @return array|null
      */
-    public function getProducts(): array
+    public function getProducts(): ?array
     {
         return $this->getParam(self::PRODUCTS);
     }
@@ -95,9 +95,9 @@ class InteractivePurchase extends AbstractMessage
     /**
      * Get the Order date of the interactive purchase
      *
-     * @return string
+     * @return string|null
      */
-    public function getOrderDate(): string
+    public function getOrderDate(): ?string
     {
         return $this->getParam(self::ORDER_DATE);
     }
@@ -117,9 +117,9 @@ class InteractivePurchase extends AbstractMessage
     /**
      * Get the Order Id of the interactive purchase
      *
-     * @return int
+     * @return int|null
      */
-    public function getOrderId(): int
+    public function getOrderId(): ?int
     {
         return $this->getParam(self::ORDER_ID);
     }
@@ -139,9 +139,9 @@ class InteractivePurchase extends AbstractMessage
     /**
      * Gets the first name of the customer who made the purchase
      *
-     * @return string
+     * @return string|null
      */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->getParam(self::FIRST_NAME);
     }
@@ -161,9 +161,9 @@ class InteractivePurchase extends AbstractMessage
     /**
      * Gets the last name of the customer who made the purchase
      *
-     * @return string
+     * @return string|null
      */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->getParam(self::LAST_NAME);
     }
