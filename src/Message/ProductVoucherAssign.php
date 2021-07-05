@@ -1,6 +1,8 @@
 <?php
 namespace Serato\UserProfileSdk\Message;
 
+use DateTime;
+
 /**
  * Class ProductVoucherAssign
  * @package Serato\UserProfileSdk\Message
@@ -79,37 +81,37 @@ class ProductVoucherAssign extends AbstractMessage
     }
 
     /**
-     * @param string $assignedAt
+     * @param DateTime|null $assignedAt
      * @return $this
      */
-    public function setAssignedAt(string $assignedAt): self
+    public function setAssignedAt(?DateTime $assignedAt): self
     {
         $this->setParam(self::PARAM_ASSIGNED_AT, $assignedAt);
         return $this;
     }
 
     /**
-     * @return string|null
+     * @return DateTime|null
      */
-    public function getAssignedAt(): ?string
+    public function getAssignedAt(): ?DateTime
     {
         return $this->getParam(self::PARAM_ASSIGNED_AT);
     }
 
     /**
-     * @param string $updatedAt
+     * @param DateTime|null $updatedAt
      * @return $this
      */
-    public function setRedeemedAt(string $updatedAt): self
+    public function setRedeemedAt(?DateTime $updatedAt): self
     {
         $this->setParam(self::PARAM_REDEEMED_AT, $updatedAt);
         return $this;
     }
 
     /**
-     * @return string|null
+     * @return DateTime|null
      */
-    public function getRedeemedAt(): ?string
+    public function getRedeemedAt(): ?DateTime
     {
         return $this->getParam(self::PARAM_REDEEMED_AT);
     }

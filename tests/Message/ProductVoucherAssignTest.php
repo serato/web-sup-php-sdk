@@ -3,6 +3,7 @@ namespace Serato\UserProfileSdk\Test\Message;
 
 use Serato\UserProfileSdk\Message\ProductVoucherAssign;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
+use DateTime;
 
 /**
  * Class ProductVoucherAssignTest
@@ -16,8 +17,8 @@ class ProductVoucherAssignTest extends PHPUnitTestCase
         $voucherTypeId = 139;
         $voucherId     = 'SPV-VNRN-GR2R-1111';
         $batchId       = 'VNRN';
-        $assignedAt    = '2021-05-02T00:00:00+:00:00';
-        $redeemedAt    = '2021-05-02T00:00:00+:00:00';
+        $assignedAt    = new DateTime('2021-05-02T00:00:00');
+        $redeemedAt    = new DateTime('2021-05-02T00:00:00');
 
         $productVoucher = ProductVoucherAssign::create($userId)
             ->setVoucherId($voucherId)
