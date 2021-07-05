@@ -35,9 +35,9 @@ class ProductVoucherAssign extends AbstractMessage
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getVoucherId(): string
+    public function getVoucherId(): ?string
     {
         return $this->getParam(self::PARAM_VOUCHER_ID);
     }
@@ -53,9 +53,9 @@ class ProductVoucherAssign extends AbstractMessage
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getVoucherTypeId(): int
+    public function getVoucherTypeId(): ?int
     {
         return $this->getParam(self::PARAM_VOUCHER_TYPE_ID);
     }
@@ -71,9 +71,9 @@ class ProductVoucherAssign extends AbstractMessage
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getBatchId(): string
+    public function getBatchId(): ?string
     {
         return $this->getParam(self::PARAM_BATCH_ID);
     }
@@ -89,9 +89,9 @@ class ProductVoucherAssign extends AbstractMessage
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAssignedAt(): string
+    public function getAssignedAt(): ?string
     {
         return $this->getParam(self::PARAM_ASSIGNED_AT);
     }
@@ -107,9 +107,9 @@ class ProductVoucherAssign extends AbstractMessage
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRedeemedAt(): string
+    public function getRedeemedAt(): ?string
     {
         return $this->getParam(self::PARAM_REDEEMED_AT);
     }

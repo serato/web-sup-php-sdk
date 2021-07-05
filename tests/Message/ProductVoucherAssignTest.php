@@ -32,4 +32,10 @@ class ProductVoucherAssignTest extends PHPUnitTestCase
         $this->assertEquals($assignedAt, $productVoucher->getAssignedAt());
         $this->assertEquals($redeemedAt, $productVoucher->getRedeemedAt());
     }
+
+    public function testNullableGetters(): void
+    {
+        $productVoucher = ProductVoucherAssign::create(1);
+        $this->assertNull($productVoucher->getVoucherId());
+    }
 }
