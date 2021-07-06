@@ -9,11 +9,11 @@ use DateTime;
  */
 class ProductVoucherAssign extends AbstractMessage
 {
-    private const PARAM_VOUCHER_ID      = 'id';
-    private const PARAM_VOUCHER_TYPE_ID = 'type_id';
-    private const PARAM_BATCH_ID        = 'batch_id';
-    private const PARAM_ASSIGNED_AT     = 'assigned_at';
-    private const PARAM_REDEEMED_AT     = 'redeemed_at';
+    public const PARAM_VOUCHER_ID      = 'id';
+    public const PARAM_VOUCHER_TYPE_ID = 'type_id';
+    public const PARAM_BATCH_ID        = 'batch_id';
+    public const PARAM_ASSIGNED_AT     = 'assigned_at';
+    public const PARAM_REDEEMED_AT     = 'redeemed_at';
 
     /**
      * Creates a new message instance
