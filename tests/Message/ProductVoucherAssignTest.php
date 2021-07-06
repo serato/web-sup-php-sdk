@@ -17,8 +17,8 @@ class ProductVoucherAssignTest extends PHPUnitTestCase
         $voucherTypeId = 139;
         $voucherId     = 'SPV-VNRN-GR2R-1111';
         $batchId       = 'VNRN';
-        $assignedAt    = new DateTime('2021-05-02T00:00:00');
-        $redeemedAt    = new DateTime('2021-05-02T00:00:00');
+        $assignedAt    = '2020-12-02T00:00:00+00:00';
+        $redeemedAt    = '2020-12-02T00:00:00+00:00';
 
         $productVoucher = ProductVoucherAssign::create($userId)
             ->setVoucherId($voucherId)
@@ -38,5 +38,9 @@ class ProductVoucherAssignTest extends PHPUnitTestCase
     {
         $productVoucher = ProductVoucherAssign::create(1);
         $this->assertNull($productVoucher->getVoucherId());
+        $this->assertNull($productVoucher->getVoucherTypeId());
+        $this->assertNull($productVoucher->getBatchId());
+        $this->assertNull($productVoucher->getAssignedAt());
+        $this->assertNull($productVoucher->getRedeemedAt());
     }
 }

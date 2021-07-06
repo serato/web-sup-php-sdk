@@ -81,37 +81,37 @@ class ProductVoucherAssign extends AbstractMessage
     }
 
     /**
-     * @param DateTime|null $assignedAt
+     * @param string|null $assignedAt
      * @return $this
      */
-    public function setAssignedAt(?DateTime $assignedAt): self
+    public function setAssignedAt(?string $assignedAt): self
     {
         $this->setParam(self::PARAM_ASSIGNED_AT, $assignedAt);
         return $this;
     }
 
     /**
-     * @return DateTime|null
+     * @return string|null
      */
-    public function getAssignedAt(): ?DateTime
+    public function getAssignedAt(): ?string
     {
         return $this->getParam(self::PARAM_ASSIGNED_AT);
     }
 
     /**
-     * @param DateTime|null $updatedAt
+     * @param string|null $updatedAt
      * @return $this
      */
-    public function setRedeemedAt(?DateTime $updatedAt): self
+    public function setRedeemedAt(?string $updatedAt): self
     {
         $this->setParam(self::PARAM_REDEEMED_AT, $updatedAt);
         return $this;
     }
 
     /**
-     * @return DateTime|null
+     * @return string|null
      */
-    public function getRedeemedAt(): ?DateTime
+    public function getRedeemedAt(): ?string
     {
         return $this->getParam(self::PARAM_REDEEMED_AT);
     }
