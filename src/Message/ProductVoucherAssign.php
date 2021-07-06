@@ -81,12 +81,12 @@ class ProductVoucherAssign extends AbstractMessage
     }
 
     /**
-     * @param string|null $assignedAt
+     * @param DateTime $assignedAt
      * @return $this
      */
-    public function setAssignedAt(?string $assignedAt): self
+    public function setAssignedAt(DateTime $assignedAt): self
     {
-        $this->setParam(self::PARAM_ASSIGNED_AT, $assignedAt);
+        $this->setParam(self::PARAM_ASSIGNED_AT, $assignedAt->format('c'));
         return $this;
     }
 
@@ -99,12 +99,15 @@ class ProductVoucherAssign extends AbstractMessage
     }
 
     /**
-     * @param string|null $updatedAt
+     * @param DateTime|null $redeemedAt
      * @return $this
      */
-    public function setRedeemedAt(?string $updatedAt): self
+    public function setRedeemedAt(?DateTime $redeemedAt): self
     {
-        $this->setParam(self::PARAM_REDEEMED_AT, $updatedAt);
+        if (!is_null($redeemedAt)) {
+            $redeemedAt = $redeemedAt->format('c');
+        }
+        $this->setParam(self::PARAM_REDEEMED_AT, $redeemedAt);
         return $this;
     }
 

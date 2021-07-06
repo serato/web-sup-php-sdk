@@ -24,8 +24,8 @@ class ProductVoucherAssignTest extends PHPUnitTestCase
             ->setVoucherId($voucherId)
             ->setVoucherTypeId($voucherTypeId)
             ->setBatchId($batchId)
-            ->setAssignedAt($assignedAt)
-            ->setRedeemedAt($redeemedAt);
+            ->setAssignedAt(new DateTime($assignedAt))
+            ->setRedeemedAt(new DateTime($redeemedAt));
 
         $this->assertEquals($voucherId, $productVoucher->getVoucherId());
         $this->assertEquals($voucherTypeId, $productVoucher->getVoucherTypeId());
