@@ -4,10 +4,10 @@ namespace Serato\UserProfileSdk\Message;
 use DateTime;
 
 /**
- * Class ProductVoucherAssign
+ * Class ProductVoucher
  * @package Serato\UserProfileSdk\Message
  */
-class ProductVoucherAssign extends AbstractMessage
+class ProductVoucher extends AbstractMessage
 {
     public const PARAM_VOUCHER_ID      = 'id';
     public const PARAM_VOUCHER_TYPE_ID = 'type_id';

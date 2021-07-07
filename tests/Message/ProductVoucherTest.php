@@ -1,15 +1,15 @@
 <?php
 namespace Serato\UserProfileSdk\Test\Message;
 
-use Serato\UserProfileSdk\Message\ProductVoucherAssign;
+use Serato\UserProfileSdk\Message\ProductVoucher;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use DateTime;
 
 /**
- * Class ProductVoucherAssignTest
+ * Class ProductVoucherTest
  * @package Serato\UserProfileSdk\Test\Message
  */
-class ProductVoucherAssignTest extends PHPUnitTestCase
+class ProductVoucherTest extends PHPUnitTestCase
 {
     public function testSettersAndGetters(): void
     {
@@ -20,7 +20,7 @@ class ProductVoucherAssignTest extends PHPUnitTestCase
         $assignedAt    = '2020-12-02T00:00:00+00:00';
         $redeemedAt    = '2020-12-02T00:00:00+00:00';
 
-        $productVoucher = ProductVoucherAssign::create($userId)
+        $productVoucher = ProductVoucher::create($userId)
             ->setVoucherId($voucherId)
             ->setVoucherTypeId($voucherTypeId)
             ->setBatchId($batchId)
@@ -36,7 +36,7 @@ class ProductVoucherAssignTest extends PHPUnitTestCase
 
     public function testNullableGetters(): void
     {
-        $productVoucher = ProductVoucherAssign::create(1);
+        $productVoucher = ProductVoucher::create(1);
         $this->assertNull($productVoucher->getVoucherId());
         $this->assertNull($productVoucher->getVoucherTypeId());
         $this->assertNull($productVoucher->getBatchId());
