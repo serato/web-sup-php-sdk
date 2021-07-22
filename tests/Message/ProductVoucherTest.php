@@ -1,4 +1,5 @@
 <?php
+
 namespace Serato\UserProfileSdk\Test\Message;
 
 use Serato\UserProfileSdk\Message\ProductVoucher;

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serato\UserProfileSdk\Message;
@@ -20,17 +21,17 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
  */
 class InteractivePurchase extends AbstractMessage
 {
-    const PRODUCTS = 'products';
-    const ORDER_DATE = 'order_date';
-    const ORDER_ID = 'order_id';
+    private const PRODUCTS = 'products';
+    private const ORDER_DATE = 'order_date';
+    private const ORDER_ID = 'order_id';
 
     /*
         NOTE: This is a stop gap implementation - ideally these are already populated from other events in the SUP
         app, but they aren't. We require these to send over to Yotpo so we need them at the same time that orders
         come through.
     */
-    const FIRST_NAME = 'first_name';
-    const LAST_NAME = 'last_name';
+    private const FIRST_NAME = 'first_name';
+    private const LAST_NAME = 'last_name';
 
     /**
      * Creates a new message instance

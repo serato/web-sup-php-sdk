@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serato\UserProfileSdk\Message;
@@ -10,8 +11,8 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
  */
 class AuthorizeApplication extends AbstractMessage
 {
-    const APP_NAME = 'app-name';
-    const AUTHORIZATION_TIME = 'authorization-time';
+    public const APP_NAME = 'app-name';
+    public const AUTHORIZATION_TIME = 'authorization-time';
 
     /**
      * Creates a new message instance

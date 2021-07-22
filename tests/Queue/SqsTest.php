@@ -1,10 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serato\UserProfileSdk\Test\Queue;
 
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
-
 use Aws\Sdk;
 use Aws\Result;
 use Aws\MockHandler;

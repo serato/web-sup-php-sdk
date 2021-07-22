@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serato\UserProfileSdk\Message;
@@ -13,8 +14,8 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
  */
 class TrialProductUpdate extends AbstractMessage
 {
-    const PRODUCT_NAME = 'trial-product';
-    const EXPIRY = 'expiry';
+    private const PRODUCT_NAME = 'trial-product';
+    private const EXPIRY = 'expiry';
 
     /**
      * Creates a new message instance

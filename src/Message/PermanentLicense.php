@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serato\UserProfileSdk\Message;
@@ -10,12 +11,12 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
  */
 class PermanentLicense extends AbstractMessage
 {
-    const LICENSE_TYPE_ID = 'license-type-id';
-    const LICENSE_ID = 'license-id';
-    const LICENSE_ACTION = 'license-action';
+    protected const LICENSE_TYPE_ID = 'license-type-id';
+    protected const LICENSE_ID = 'license-id';
+    protected const LICENSE_ACTION = 'license-action';
 
-    const ADD = 'license-action-add';
-    const REMOVE = 'license-action-remove';
+    public const ADD = 'license-action-add';
+    public const REMOVE = 'license-action-remove';
 
     /**
      * {@inheritdoc}

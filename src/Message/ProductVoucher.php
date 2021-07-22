@@ -1,4 +1,5 @@
 <?php
+
 namespace Serato\UserProfileSdk\Message;
 
 use DateTime;

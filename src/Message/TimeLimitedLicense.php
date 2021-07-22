@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serato\UserProfileSdk\Message;
@@ -10,12 +11,12 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
  */
 class TimeLimitedLicense extends AbstractMessage
 {
-    const LICENSE_TYPE_ID = 'license-type-id';
-    const LICENSE_ID = 'license-id';
-    const LICENSE_ACTION = 'license-action';
-    const ADD = 'license-action-add';
-    const REMOVE = 'license-action-remove';
-    const EXPIRY = 'expiry';
+    protected const LICENSE_TYPE_ID = 'license-type-id';
+    protected const LICENSE_ID = 'license-id';
+    protected const LICENSE_ACTION = 'license-action';
+    public const ADD = 'license-action-add';
+    public const REMOVE = 'license-action-remove';
+    protected const EXPIRY = 'expiry';
 
     /**
      * {@inheritdoc}

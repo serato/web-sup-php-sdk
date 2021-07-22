@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serato\UserProfileSdk\Queue;
@@ -20,8 +21,8 @@ use Serato\UserProfileSdk\Exception\QueueSendException;
  */
 abstract class AbstractMessageQueue
 {
-    const MESSAGE_TYPE = 'type';
-    const MESSAGE_BODY = 'message';
+    private const MESSAGE_TYPE = 'type';
+    private const MESSAGE_BODY = 'message';
 
     /**
      * Send a message to the queue
@@ -79,7 +80,7 @@ abstract class AbstractMessageQueue
         $messageType = $messageBody[self::MESSAGE_TYPE];
 
         if (!isset($classMap[$messageType])) {
-            throw new InvalidMessageTypeException;
+            throw new InvalidMessageTypeException();
         } else {
             $messageClass = $classMap[$messageType];
             return $messageClass::create($userId, $messageBody[self::MESSAGE_BODY]);

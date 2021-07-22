@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serato\UserProfileSdk\Message;
@@ -10,10 +11,10 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
  */
 class SoftwareDownload extends AbstractMessage
 {
-    const SOFTWARE_NAME = 'software';
-    const VERSION = 'version';
-    const OS = 'os';
-    const RELEASE_TYPE = 'release_type';
+    protected const SOFTWARE_NAME = 'software';
+    protected const VERSION = 'version';
+    protected const OS = 'os';
+    protected const RELEASE_TYPE = 'release_type';
 
     /**
      * Creates a new message instance

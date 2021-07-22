@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serato\UserProfileSdk\Message;
@@ -11,9 +12,9 @@ use Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException;
  */
 class UserGroup extends AbstractMessage
 {
-    const GROUPS = 'groups';
-    const ID = 'id';
-    const NAME = 'name';
+    public const GROUPS = 'groups';
+    public const ID = 'id';
+    public const NAME = 'name';
 
     /**
      * Creates a new message instance
@@ -36,12 +37,14 @@ class UserGroup extends AbstractMessage
     public function setGroups(array $groups): self
     {
         foreach ($groups as $group) {
-            if (!is_array($group) ||
+            if (
+                !is_array($group) ||
                 count(array_keys($group)) !== 2 ||
                 !isset($group[self::ID]) ||
                 !isset($group[self::NAME]) ||
                 !is_numeric($group[self::ID]) ||
-                !is_string($group[self::NAME])) {
+                !is_string($group[self::NAME])
+            ) {
                 throw new InvalidUserGroupMessageException();
             }
         }
