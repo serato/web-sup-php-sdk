@@ -22,7 +22,7 @@ use Ramsey\Uuid\Uuid;
  */
 class Sqs extends AbstractMessageQueue
 {
-    const MAX_BATCH_SIZE = 10;
+    private const MAX_BATCH_SIZE = 10;
 
     /* @var SqsClient */
     private $sqsClient;

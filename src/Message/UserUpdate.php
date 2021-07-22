@@ -14,18 +14,18 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
  */
 class UserUpdate extends AbstractMessage
 {
-    const EMAIL = 'email';
-    const DAW = 'daw';
-    const HAS_DJ_HARDWARE = 'dj_hardware';
-    const LANGUAGE = 'language';
-    const COUNTRY = 'country';
-    const HISTORICAL_MAILCHIMP_SUBSCRIBED = 'historical_mailchimp_subscribed';
-    const GLOBAL_CONTACT_ME = 'global_contact_me';
-    const IMPLICIT_OPT_OUT = 0;
-    const IMPLICIT_OPT_IN = 1;
-    const EXPLICIT_OPT_OUT = 2;
-    const EXPLICIT_OPT_IN = 3;
-    const NO_VALUE_CONTACT_ME = 4;
+    public const EMAIL = 'email';
+    public const DAW = 'daw';
+    public const HAS_DJ_HARDWARE = 'dj_hardware';
+    public const LANGUAGE = 'language';
+    public const COUNTRY = 'country';
+    public const HISTORICAL_MAILCHIMP_SUBSCRIBED = 'historical_mailchimp_subscribed';
+    public const GLOBAL_CONTACT_ME = 'global_contact_me';
+    public const IMPLICIT_OPT_OUT = 0;
+    public const IMPLICIT_OPT_IN = 1;
+    public const EXPLICIT_OPT_OUT = 2;
+    public const EXPLICIT_OPT_IN = 3;
+    public const NO_VALUE_CONTACT_ME = 4;
 
     /**
      * Creates a new message instance

@@ -21,8 +21,8 @@ use Serato\UserProfileSdk\Exception\QueueSendException;
  */
 abstract class AbstractMessageQueue
 {
-    const MESSAGE_TYPE = 'type';
-    const MESSAGE_BODY = 'message';
+    private const MESSAGE_TYPE = 'type';
+    private const MESSAGE_BODY = 'message';
 
     /**
      * Send a message to the queue

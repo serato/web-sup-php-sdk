@@ -12,8 +12,8 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
  */
 class SoundPackDownload extends AbstractMessage
 {
-    const SOUND_PACK_NAME = 'sound_pack_name';
-    const DOWNLOAD_AT = 'download_at';
+    private const SOUND_PACK_NAME = 'sound_pack_name';
+    private const DOWNLOAD_AT = 'download_at';
 
     /**
      * {@inheritdoc}

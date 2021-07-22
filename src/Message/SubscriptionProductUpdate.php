@@ -14,11 +14,11 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
  */
 class SubscriptionProductUpdate extends AbstractMessage
 {
-    const PLAN = 'plan';
-    const EXPIRY = 'expiry';
-    const STATUS = 'status';
-    const NUMBER_OF_BILLING_CYCLES = 'numberOfBillingCycles';
-    const CURRENT_BILLING_CYCLE = 'currentBillingCycle';
+    private const PLAN = 'plan';
+    private const EXPIRY = 'expiry';
+    private const STATUS = 'status';
+    private const NUMBER_OF_BILLING_CYCLES = 'numberOfBillingCycles';
+    private const CURRENT_BILLING_CYCLE = 'currentBillingCycle';
 
     /**
      * Creates a new message instance

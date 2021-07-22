@@ -12,9 +12,9 @@ use Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException;
  */
 class UserGroup extends AbstractMessage
 {
-    const GROUPS = 'groups';
-    const ID = 'id';
-    const NAME = 'name';
+    public const GROUPS = 'groups';
+    public const ID = 'id';
+    public const NAME = 'name';
 
     /**
      * Creates a new message instance
