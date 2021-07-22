@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serato\UserProfileSdk\Test\Message;
@@ -38,12 +39,12 @@ class AuthorizeApplicationTest extends PHPUnitTestCase
             AuthorizeApplication::APP_NAME => $appName,
             AuthorizeApplication::AUTHORIZATION_TIME => $authorizationTime
         ];
-        
+
         $this->assertEquals($userId, $message->getUserId());
         $this->assertEquals($expectedParams, $message->getParams());
         $this->assertEquals($appName, $message->getAppName());
         $this->assertEquals($authorizationTime, $message->getAuthorizationTime());
-        
+
         $timestamp = 1583730684;
         $expectedTime = "2020-03-09T05:11:24+00:00"; # Equivalent to the above
         $expectedParams = [
