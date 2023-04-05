@@ -26,7 +26,6 @@ class UserUpdateTest extends PHPUnitTestCase
                         ->setHasDjHardware($hardware)
                         ->setLanguage($language)
                         ->setCountry($country)
-                        ->setHistoricalMailchimpSubscribed($mcHistoricalSubscribed)
                         ->setGlobalContactMe($globalContactMe);
 
         $this->assertEquals('UserUpdate', $userUpdate->getType());
@@ -35,7 +34,6 @@ class UserUpdateTest extends PHPUnitTestCase
         $this->assertEquals($hardware, $userUpdate->getHasDjHardware());
         $this->assertEquals($language, $userUpdate->getLanguage());
         $this->assertEquals($country, $userUpdate->getCountry());
-        $this->assertEquals($mcHistoricalSubscribed, $userUpdate->getHistoricalMailchimpSubscribed());
         $this->assertEquals($globalContactMe, $userUpdate->getGlobalContactMe());
     }
 }

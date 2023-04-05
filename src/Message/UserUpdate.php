@@ -19,7 +19,6 @@ class UserUpdate extends AbstractMessage
     public const HAS_DJ_HARDWARE = 'dj_hardware';
     public const LANGUAGE = 'language';
     public const COUNTRY = 'country';
-    public const HISTORICAL_MAILCHIMP_SUBSCRIBED = 'historical_mailchimp_subscribed';
     public const GLOBAL_CONTACT_ME = 'global_contact_me';
     public const IMPLICIT_OPT_OUT = 0;
     public const IMPLICIT_OPT_IN = 1;
@@ -147,28 +146,6 @@ class UserUpdate extends AbstractMessage
     public function getCountry(): ?string
     {
         return $this->getParam(self::COUNTRY);
-    }
-
-    /**
-     * Set whether or not the user is subscribed to the historical MailChimp list
-     *
-     * @param bool $subscribed
-     * @return self
-     */
-    public function setHistoricalMailchimpSubscribed(bool $subscribed): self
-    {
-        $this->setParam(self::HISTORICAL_MAILCHIMP_SUBSCRIBED, $subscribed);
-        return $this;
-    }
-
-    /**
-     * Return whether or not the user is subscribed to the historical MailChimp list
-     *
-     * @return null | bool
-     */
-    public function getHistoricalMailchimpSubscribed(): ?bool
-    {
-        return $this->getParam(self::HISTORICAL_MAILCHIMP_SUBSCRIBED);
     }
 
     /**
