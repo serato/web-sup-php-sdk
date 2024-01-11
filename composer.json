@@ -12,7 +12,7 @@
 		"phpunit/phpunit": "~7.0",
 		"squizlabs/php_codesniffer": "~3.0",
 		"monolog/monolog": "^1.21.0",
-		"phpstan/phpstan": "^0.11.0",
+		"phpstan/phpstan": "^0.12",
 		"phpstan/phpstan-phpunit": "^0.11.0",
 		"enlightn/security-checker": "^1.4"
 	},
