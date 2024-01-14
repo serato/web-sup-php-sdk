@@ -13,6 +13,9 @@ use RuntimeException;
  */
 class InvalidMessageTypeException extends RuntimeException
 {
+    /**
+     * @var string
+     */
     protected $message = "Invalid message type.\n\nCheck that the message type " .
                                 "is defined in the class map used by " .
                                 "`Serato\UserProfileSdk\Queue\AbstractMessageQueue`.";
