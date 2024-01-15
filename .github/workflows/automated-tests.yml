@@ -42,4 +42,4 @@ jobs:
           ./vendor/bin/phpcs
       - name: Run test suite
         run: |
-          phpe vendor/bin/phpunit
+          php vendor/bin/phpunit
