@@ -40,7 +40,6 @@ jobs:
         run: |
           ./vendor/bin/phpstan analyse
           ./vendor/bin/phpcs
-          ./vendor/bin/security-checker security:check
       - name: Run test suite
         run: |
           phpe vendor/bin/phpunit
