@@ -49,7 +49,7 @@ abstract class AbstractMessageQueue
      * message class into an array suitable for sending to the queue.
      *
      * @param AbstractMessage   $message    Message instance
-     * @return array<array>
+     * @return array<string, array<array>|string>
      */
     protected function getWrappedMessageBody(AbstractMessage $message): array
     {
@@ -64,8 +64,8 @@ abstract class AbstractMessageQueue
      * represents a single message body read from the queue.
      *
      * @param int       $userId         User ID
-     * @param array<array>     $messageBody    Array of message body data
-     * @param array<array>     $classMap       A map of message types to class names (optional)
+     * @param array<string>     $messageBody    Array of message body data
+     * @param array<string>     $classMap       A map of message types to class names (optional)
      *
      * @return mixed    An AbstractMessage instance
      *
@@ -93,7 +93,7 @@ abstract class AbstractMessageQueue
      * ie. All non-abstract classes defined under the `Serato\UserProfileSdk\Message`
      * namespace.
      *
-     * @return array<array>
+     * @return array<string, string>
      */
     private static function getDefaultClassMap(): array
     {

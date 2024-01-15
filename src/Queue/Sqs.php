@@ -32,7 +32,7 @@ class Sqs extends AbstractMessageQueue
     /** @var string */
     private $sqsQueueUrl;
 
-    /** @var array */
+    /** @var array<array> */
     private $messageBatch = [];
 
     /** @var boolean */
@@ -89,7 +89,7 @@ class Sqs extends AbstractMessageQueue
      * Return an `AbstractMessage` instance from a raw queue message
      *
      * @param mixed          $sqsMessage   A raw queue message
-     * @param array<array>   $classMap     A map of message types to class names (optional)
+     * @param array<string>   $classMap     A map of message types to class names (optional)
      *
      * @return mixed    An AbstractMessage instance
      *
@@ -126,7 +126,7 @@ class Sqs extends AbstractMessageQueue
      * @param AbstractMessage   $message            Message instance
      * @param string            $batchMessageId     An ID that is unique within a batch of
      *                                              messages (required for batch operations)
-     * @return array<array>
+     * @return array<string, array<string, array<string, string>>|bool|string>
      */
     public function messageToSqsSendParams(AbstractMessage $message, string $batchMessageId = null)
     {
@@ -186,9 +186,9 @@ class Sqs extends AbstractMessageQueue
     }
 
     /**
-     * @return Result|null
+     * @return mixed
      */
-    private function sendMessageBatch(): ?Result
+    private function sendMessageBatch()
     {
         if (count($this->messageBatch) > 0) {
             try {

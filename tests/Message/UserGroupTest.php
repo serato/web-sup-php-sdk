@@ -78,7 +78,9 @@ class UserGroupTest extends PHPUnitTestCase
     public function testSettersWithIncorrectValues3(): void
     {
         $userId = 123;
-        $groups = ["invalidData"];
+        $groups = [
+            ["id" => "invalidData"]
+        ];
         $userGroup = UserGroup::create($userId)->setGroups($groups);
     }
 

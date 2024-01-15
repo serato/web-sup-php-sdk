@@ -11,18 +11,26 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
  */
 class TestMessage extends AbstractMessage
 {
+    /**
+     * @param int $userId
+     * @param array<string, int|string> $params
+     */
     public static function create(int $userId, array $params = []): self
     {
+        /** @phpstan-ignore-next-line */
         return new static($userId, $params);
     }
 
-    public function setScalarValue($val): self
+    public function setScalarValue(string $val): self
     {
         $this->setParam('scalarValue', $val);
         return $this;
     }
 
-    public function setArrayValue(array $val): self
+    /**
+     * @param array<string, int|string> $val
+     */
+    public function setArrayValue($val): self
     {
         $this->setParam('arrayValue', $val);
         return $this;

@@ -18,7 +18,7 @@ class AuthorizeApplication extends AbstractMessage
      * Creates a new message instance
      *
      * @param int   $userId      User ID
-     * @param array<array> $params      Array of message parameters
+     * @param array<string, string> $params      Array of message parameters
      * @return self
      */
     public static function create(int $userId, array $params = []): self

@@ -37,10 +37,13 @@ abstract class AbstractMessage
     }
 
     /**
-     * @param int   $userId
+     * Create a message object
+     *
+     * @param int $userId
      * @param array<array> $params
+     * @return mixed
      */
-    abstract public static function create(int $userId, array $params = []): mixed;
+    abstract public static function create(int $userId, array $params = []);
 
     /**
      * Send the message to message queue

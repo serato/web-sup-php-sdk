@@ -170,6 +170,7 @@ class SqsTest extends PHPUnitTestCase
 
         $sqsReceiveResult = [
             'Body'              => $sqsSendParams['MessageBody'],
+            /** @phpstan-ignore-next-line */
             'MD5OfBody'         => md5($sqsSendParams['MessageBody']),
             'MessageAttributes' => $sqsSendParams['MessageAttributes']
         ];
@@ -237,7 +238,8 @@ class SqsTest extends PHPUnitTestCase
 
         $this->assertTrue(isset($result['Messages']) && count($result['Messages']) > 0);
 
-        if (isset($result['Messages']) && count($result['Messages']) > 0) {
+        /** @phpstan-ignore-next-line */
+        if (isset($result['Messages']) && is_array($result['Messages']) && count($result['Messages']) > 0) {
             $message = $result['Messages'][0];
             $this->assertEquals($message['MessageId'], $messageId);
 
@@ -255,7 +257,7 @@ class SqsTest extends PHPUnitTestCase
     }
 
     /**
-     * @param array<array> $mockResults    An array of mock results to return from SDK clients
+     * @param array<int, mixed> $mockResults  An array of mock results to return from SDK clients
      * @return Sdk
      */
     protected function getMockedAwsSdk(array $mockResults = [])
@@ -288,10 +290,8 @@ class SqsTest extends PHPUnitTestCase
     /**
      * @param int $userId
      * @param array<array> $params
-     *
-     * @return AbstractMessage
      */
-    private function createAbstractMessageMock($userId, $params = [])
+    private function createAbstractMessageMock($userId, $params = []): void
     {
         $this->mockMessage = $this->getMockForAbstractClass(
             AbstractMessage::class,
