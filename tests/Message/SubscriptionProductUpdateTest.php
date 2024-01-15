@@ -9,7 +9,7 @@ use Serato\UserProfileSdk\Message\SubscriptionProductUpdate;
 
 class SubscriptionProductUpdateTest extends PHPUnitTestCase
 {
-    public function testSetters0()
+    public function testSetters0(): void
     {
         $userId = 123;
         $planName = 'dj-sub';
@@ -33,7 +33,7 @@ class SubscriptionProductUpdateTest extends PHPUnitTestCase
         $this->assertEquals($currentBillingCycle, $subscription->getCurrentBillingCycle());
     }
 
-    public function testSetters1()
+    public function testSetters1(): void
     {
         $userId = 123;
         $planName = 'dj-sub';

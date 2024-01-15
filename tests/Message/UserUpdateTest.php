@@ -9,7 +9,7 @@ use Serato\UserProfileSdk\Message\UserUpdate;
 
 class UserUpdateTest extends PHPUnitTestCase
 {
-    public function testSetters()
+    public function testSetters(): void
     {
         $userId = 123;
         $email = 'test@serato.com';

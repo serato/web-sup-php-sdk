@@ -9,7 +9,7 @@ use Serato\UserProfileSdk\Message\UserGroup;
 
 class UserGroupTest extends PHPUnitTestCase
 {
-    public function testSettersWithCorrectValues()
+    public function testSettersWithCorrectValues(): void
     {
         $userId = 123;
         $groups = [
@@ -29,7 +29,7 @@ class UserGroupTest extends PHPUnitTestCase
         $this->assertEquals($groups, $userGroup->getGroups());
     }
 
-    public function testSettersWithEmptyArray()
+    public function testSettersWithEmptyArray(): void
     {
         $userId = 123;
         $groups = [];
@@ -43,7 +43,7 @@ class UserGroupTest extends PHPUnitTestCase
     /**
      * @expectedException Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException
      */
-    public function testSettersWithIncorrectValues()
+    public function testSettersWithIncorrectValues(): void
     {
         $userId = 123;
         $groups = [
@@ -59,7 +59,7 @@ class UserGroupTest extends PHPUnitTestCase
     /**
      * @expectedException Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException
      */
-    public function testSettersWithIncorrectValues2()
+    public function testSettersWithIncorrectValues2(): void
     {
         $userId = 123;
         $groups = [
@@ -75,7 +75,7 @@ class UserGroupTest extends PHPUnitTestCase
     /**
      * @expectedException Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException
      */
-    public function testSettersWithIncorrectValues3()
+    public function testSettersWithIncorrectValues3(): void
     {
         $userId = 123;
         $groups = ["invalidData"];
@@ -85,7 +85,7 @@ class UserGroupTest extends PHPUnitTestCase
     /**
      * @expectedException Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException
      */
-    public function testSettersWithIncorrectStructure()
+    public function testSettersWithIncorrectStructure(): void
     {
         $userId = 123;
         // Invalid array structure
@@ -100,7 +100,7 @@ class UserGroupTest extends PHPUnitTestCase
     /**
      * @expectedException Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException
      */
-    public function testSettersWithIncorrectStructure2()
+    public function testSettersWithIncorrectStructure2(): void
     {
         $userId = 123;
         // Invalid array structure

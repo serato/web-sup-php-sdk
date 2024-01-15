@@ -9,7 +9,7 @@ use Serato\UserProfileSdk\Message\TrialProductUpdate;
 
 class TrialProductUpdateTest extends PHPUnitTestCase
 {
-    public function testSetters0()
+    public function testSetters0(): void
     {
         $userId = 123;
         $productName = 'sample';
@@ -24,7 +24,7 @@ class TrialProductUpdateTest extends PHPUnitTestCase
         $this->assertEquals($expiryDate, $trialProduct->getExpiry());
     }
 
-    public function testSetters1()
+    public function testSetters1(): void
     {
         $userId = 123;
         $productName = 'sample';

@@ -38,6 +38,7 @@ class PermanentLicense extends AbstractMessage
      */
     public static function create(int $userId, array $params = []): self
     {
+        /** @phpstan-ignore-next-line */
         return new static($userId, $params);
     }
 

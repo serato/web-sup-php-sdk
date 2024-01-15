@@ -20,18 +20,19 @@ class UserGroup extends AbstractMessage
      * Creates a new message instance
      *
      * @param int   $userId      User ID
-     * @param array $params      Array of message parameters
+     * @param array<array> $params      Array of message parameters
      * @return self
      */
     public static function create(int $userId, array $params = []): self
     {
+        /** @phpstan-ignore-next-line */
         return new static($userId, $params);
     }
 
     /**
      * Set groups that user belongs to
      *
-     * @param array    $groups   array of groups ['id' => $id, 'name' => $name]
+     * @param array<array>    $groups   array of groups ['id' => $id, 'name' => $name]
      * @return self
      */
     public function setGroups(array $groups): self
@@ -55,7 +56,7 @@ class UserGroup extends AbstractMessage
     /**
      * Get array of groups
      *
-     * @return null | array
+     * @return null | array<array>
      */
     public function getGroups(): ?array
     {

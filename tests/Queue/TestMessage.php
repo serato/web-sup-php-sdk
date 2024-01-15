@@ -16,23 +16,29 @@ class TestMessage extends AbstractMessage
         return new static($userId, $params);
     }
 
-    public function setScalarValue($val)
+    public function setScalarValue($val): self
     {
         $this->setParam('scalarValue', $val);
         return $this;
     }
 
-    public function setArrayValue(array $val)
+    public function setArrayValue(array $val): self
     {
         $this->setParam('arrayValue', $val);
         return $this;
     }
 
+    /**
+     * @return null | mixed
+     */
     public function getScalarValue()
     {
         return $this->getParam('scalarValue');
     }
 
+    /**
+     * @return null | mixed
+     */
     public function getArrayValue()
     {
         return $this->getParam('arrayValue');

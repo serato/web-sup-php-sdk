@@ -9,10 +9,10 @@ use Serato\UserProfileSdk\Message\AbstractMessage;
 
 class AbstractMessageTest extends PHPUnitTestCase
 {
-    /* @var AbstractMessage */
+    /** @var AbstractMessage */
     private $mockMessage;
 
-    public function testGetMethods()
+    public function testGetMethods(): void
     {
         $userId = 111;
         $params = ['param1' => 'val1', 'param2' => 22];
@@ -24,9 +24,10 @@ class AbstractMessageTest extends PHPUnitTestCase
     }
 
     /**
-     * @return AbstractMessage
+     * @param int $userId
+     * @param array<array> $params
      */
-    private function createAbstractMessageMock($userId, $params)
+    private function createAbstractMessageMock($userId, $params): void
     {
         $this->mockMessage = $this->getMockForAbstractClass(
             AbstractMessage::class,
