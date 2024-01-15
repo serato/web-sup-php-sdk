@@ -288,7 +288,7 @@ class SqsTest extends PHPUnitTestCase
     /**
      * @param int $userId
      * @param array<array> $params
-     * 
+     *
      * @return AbstractMessage
      */
     private function createAbstractMessageMock($userId, $params = [])
