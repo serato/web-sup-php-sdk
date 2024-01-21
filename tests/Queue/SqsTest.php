@@ -170,7 +170,6 @@ class SqsTest extends PHPUnitTestCase
 
         $sqsReceiveResult = [
             'Body'              => $sqsSendParams['MessageBody'],
-            /** @phpstan-ignore-next-line */
             'MD5OfBody'         => md5($sqsSendParams['MessageBody']),
             'MessageAttributes' => $sqsSendParams['MessageAttributes']
         ];

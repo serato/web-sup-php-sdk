@@ -9,18 +9,18 @@ on:
   
 jobs:
   unit-tests-and-analyzers:
-    name: "PHP ${{ matrix.php-versions }}: Phpstan, Phpcs, Phpunit tests"
+    name: "PHP ${{ matrix.php-version }}: Phpstan, Phpcs, Phpunit tests"
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-versions: ['7.1', '7.2']
+        php-version: ['7.1', '7.2']
     steps:
       - uses: actions/checkout@v3 # checkout from repo to github action
       - name: Setup PHP
         uses: shivammathur/setup-php@master # setup php env in github action
         with:
-          php-version: ${{ matrix.php-versions }}
+          php-version: ${{ matrix.php-version }}
 
       - name: Cache Composer dependencies # setup cache in github action
         uses: actions/cache@v3
@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies # install composer in github action
         uses: php-actions/composer@v6
         with:
-          php_version: ${{ matrix.php-versions }}
+          php_version: ${{ matrix.php-version }}
           php_extensions: gmp
           version: 2.2
 

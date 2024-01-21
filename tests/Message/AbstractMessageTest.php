@@ -25,7 +25,7 @@ class AbstractMessageTest extends PHPUnitTestCase
 
     /**
      * @param int $userId
-     * @param array<string, int|string> $params
+     * @param array<string, mixed> $params
      */
     private function createAbstractMessageMock($userId, $params): void
     {

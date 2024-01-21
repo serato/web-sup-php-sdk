@@ -33,7 +33,7 @@ class PermanentLicense extends AbstractMessage
      * Creates a new message instance
      *
      * @param int   $userId    User ID
-     * @param array<string, int|string> $params      Array of message parameters
+     * @param array<string, mixed> $params      Array of message parameters
      * @return self
      */
     public static function create(int $userId, array $params = []): self

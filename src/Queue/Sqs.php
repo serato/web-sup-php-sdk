@@ -126,7 +126,7 @@ class Sqs extends AbstractMessageQueue
      * @param AbstractMessage   $message            Message instance
      * @param string            $batchMessageId     An ID that is unique within a batch of
      *                                              messages (required for batch operations)
-     * @return array<string, array<string, array<string, string>>|bool|string>
+     * @return array<string, mixed>
      */
     public function messageToSqsSendParams(AbstractMessage $message, string $batchMessageId = null)
     {

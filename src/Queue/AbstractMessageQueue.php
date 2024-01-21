@@ -49,7 +49,7 @@ abstract class AbstractMessageQueue
      * message class into an array suitable for sending to the queue.
      *
      * @param AbstractMessage   $message    Message instance
-     * @return array<string, array<array>|string>
+     * @return array<string, mixed>
      */
     protected function getWrappedMessageBody(AbstractMessage $message): array
     {
@@ -93,7 +93,7 @@ abstract class AbstractMessageQueue
      * ie. All non-abstract classes defined under the `Serato\UserProfileSdk\Message`
      * namespace.
      *
-     * @return array<string, string>
+     * @return array<string, mixed>
      */
     private static function getDefaultClassMap(): array
     {

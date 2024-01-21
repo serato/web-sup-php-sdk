@@ -18,7 +18,7 @@ use Serato\UserProfileSdk\Queue\AbstractMessageQueue;
  */
 abstract class AbstractMessage
 {
-    /** @var array<array> */
+    /** @var array<string, mixed> */
     private $params = [];
 
     /** @var int */
@@ -28,7 +28,7 @@ abstract class AbstractMessage
      * Constructs the instance
      *
      * @param int   $userId         User ID
-     * @param array<array> $params         Array of message parameters
+     * @param array<string, mixed> $params         Array of message parameters
      */
     public function __construct(int $userId, array $params = [])
     {
@@ -40,7 +40,7 @@ abstract class AbstractMessage
      * Create a message object
      *
      * @param int $userId
-     * @param array<array> $params
+     * @param array<string, mixed> $params
      * @return mixed
      */
     abstract public static function create(int $userId, array $params = []);
@@ -70,9 +70,9 @@ abstract class AbstractMessage
     /**
      * Returns the message params
      *
-     * @return array<array>
+     * @return array<string, mixed>
      */
-    public function getParams(): array
+    public function getParams()
     {
         return $this->params;
     }

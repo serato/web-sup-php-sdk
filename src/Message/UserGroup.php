@@ -32,7 +32,7 @@ class UserGroup extends AbstractMessage
     /**
      * Set groups that user belongs to
      *
-     * @param array<int, array<string, int|string>>  $groups   array of groups ['id' => $id, 'name' => $name]
+     * @param array<int, mixed>  $groups   array of groups ['id' => $id, 'name' => $name]
      * @return self
      */
     public function setGroups(array $groups): self
@@ -56,7 +56,7 @@ class UserGroup extends AbstractMessage
     /**
      * Get array of groups
      *
-     * @return null | array<array>
+     * @return null | array<string, mixed>
      */
     public function getGroups(): ?array
     {
