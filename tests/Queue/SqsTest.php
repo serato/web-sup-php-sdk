@@ -17,12 +17,13 @@ use Ramsey\Uuid\Uuid;
 
 class SqsTest extends PHPUnitTestCase
 {
+    /** @var MockHandler */
     private $mockHandler;
 
-    /* @var AbstractMessage */
+    /** @var AbstractMessage */
     private $mockMessage;
 
-    public function testSendMessage()
+    public function testSendMessage(): void
     {
         $this->createAbstractMessageMock(111);
 
@@ -47,7 +48,7 @@ class SqsTest extends PHPUnitTestCase
     /**
      * @group xxx
      */
-    public function testSendBatches()
+    public function testSendBatches(): void
     {
         // Send 25 messages and ensure that the SDK sends the batches correctly
 
@@ -82,7 +83,7 @@ class SqsTest extends PHPUnitTestCase
     /**
      * @expectedException \Serato\UserProfileSdk\Exception\QueueSendException
      */
-    public function testSendMessageQueueSendException()
+    public function testSendMessageQueueSendException(): void
     {
         $this->createAbstractMessageMock(111);
 
@@ -109,7 +110,7 @@ class SqsTest extends PHPUnitTestCase
     /**
      * @expectedException \Serato\UserProfileSdk\Exception\QueueSendException
      */
-    public function testSendMessageToBatchQueueSendException()
+    public function testSendMessageToBatchQueueSendException(): void
     {
         $this->createAbstractMessageMock(111);
 
@@ -136,7 +137,7 @@ class SqsTest extends PHPUnitTestCase
     /**
      * @expectedException \Serato\UserProfileSdk\Exception\InvalidMessageBodyException
      */
-    public function testCreateMessageWithInvalidMd5()
+    public function testCreateMessageWithInvalidMd5(): void
     {
         Sqs::createMessage([
             'Body'      => 'A message body',
@@ -144,7 +145,7 @@ class SqsTest extends PHPUnitTestCase
         ]);
     }
 
-    public function testCreateMessage()
+    public function testCreateMessage(): void
     {
         $results = [
             new Result(['QueueUrl'  => 'my-queue-url'])
@@ -187,7 +188,7 @@ class SqsTest extends PHPUnitTestCase
     /**
      * @group aws-integration
      */
-    public function testAwsIntegrationTest()
+    public function testAwsIntegrationTest(): void
     {
         $userId = 555;
         $scalarMessageValue = 'A scalar value';
@@ -236,7 +237,8 @@ class SqsTest extends PHPUnitTestCase
 
         $this->assertTrue(isset($result['Messages']) && count($result['Messages']) > 0);
 
-        if (isset($result['Messages']) && count($result['Messages']) > 0) {
+        /** @phpstan-ignore-next-line */
+        if (isset($result['Messages']) && is_array($result['Messages']) && count($result['Messages']) > 0) {
             $message = $result['Messages'][0];
             $this->assertEquals($message['MessageId'], $messageId);
 
@@ -254,7 +256,7 @@ class SqsTest extends PHPUnitTestCase
     }
 
     /**
-     * @param array $mockResults    An array of mock results to return from SDK clients
+     * @param array<int, mixed> $mockResults  An array of mock results to return from SDK clients
      * @return Sdk
      */
     protected function getMockedAwsSdk(array $mockResults = [])
@@ -285,9 +287,10 @@ class SqsTest extends PHPUnitTestCase
     }
 
     /**
-     * @return AbstractMessage
+     * @param int $userId
+     * @param array<array> $params
      */
-    private function createAbstractMessageMock($userId, $params = [])
+    private function createAbstractMessageMock($userId, $params = []): void
     {
         $this->mockMessage = $this->getMockForAbstractClass(
             AbstractMessage::class,

@@ -9,7 +9,7 @@ use Serato\UserProfileSdk\Message\SoundPackDownload;
 
 class SoundPackDownloadTest extends PHPUnitTestCase
 {
-    public function testSetters()
+    public function testSetters(): void
     {
         $userId = 123;
         $soundPackName = 'Organic House Vol. 1';

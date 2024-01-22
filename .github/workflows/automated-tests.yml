@@ -1,0 +1,45 @@
+name: Automated tests and static code analyzers
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - master
+      - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
+  
+jobs:
+  unit-tests-and-analyzers:
+    name: "PHP ${{ matrix.php-version }}: Phpstan, Phpcs, Phpunit tests"
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-version: ['7.1', '7.2']
+    steps:
+      - uses: actions/checkout@v3 # checkout from repo to github action
+      - name: Setup PHP
+        uses: shivammathur/setup-php@master # setup php env in github action
+        with:
+          php-version: ${{ matrix.php-version }}
+
+      - name: Cache Composer dependencies # setup cache in github action
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+      - name: Install dependencies # install composer in github action
+        uses: php-actions/composer@v6
+        with:
+          php_version: ${{ matrix.php-version }}
+          php_extensions: gmp
+          version: 2.2
+
+      - name: Run static code analyzers # run the php command in github action
+        run: |
+          ./vendor/bin/phpstan analyse
+          ./vendor/bin/phpcs
+      - name: Run test suite
+        run: |
+          php vendor/bin/phpunit

@@ -9,7 +9,7 @@ use Serato\UserProfileSdk\Message\SoftwareDownloadRemove;
 
 class SoftwareDownloadRemoveTest extends PHPUnitTestCase
 {
-    public function testSetters()
+    public function testSetters(): void
     {
         $userId = 123;
         $software = 'dj-sub';

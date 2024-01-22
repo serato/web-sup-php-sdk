@@ -9,7 +9,7 @@ use Serato\UserProfileSdk\Message\PermanentLicense;
 
 class PermanentLicenseTest extends PHPUnitTestCase
 {
-    public function testLicenseImplicitAdd()
+    public function testLicenseImplicitAdd(): void
     {
         $userId = 123;
         $licenseTypeId = 33;
@@ -26,7 +26,7 @@ class PermanentLicenseTest extends PHPUnitTestCase
         $this->assertEquals(PermanentLicense::ADD, $permanentLicense->getLicenseAction());
     }
 
-    public function testLicenseAddWithoutSettingLicenseAction()
+    public function testLicenseAddWithoutSettingLicenseAction(): void
     {
         $userId = 123;
         $licenseTypeId = 33;
@@ -42,7 +42,7 @@ class PermanentLicenseTest extends PHPUnitTestCase
         $this->assertEquals(PermanentLicense::ADD, $permanentLicense->getLicenseAction());
     }
 
-    public function testLicenseAddByParams()
+    public function testLicenseAddByParams(): void
     {
         $userId = 123;
         $licenseTypeId = 63;
@@ -60,7 +60,7 @@ class PermanentLicenseTest extends PHPUnitTestCase
         $this->assertEquals(PermanentLicense::ADD, $permanentLicense->getLicenseAction());
     }
 
-    public function testLicenseExplicitAdd()
+    public function testLicenseExplicitAdd(): void
     {
         $userId = 123;
         $licenseTypeId = 33;
@@ -76,7 +76,7 @@ class PermanentLicenseTest extends PHPUnitTestCase
         $this->assertEquals(PermanentLicense::ADD, $permanentLicense->getLicenseAction());
     }
 
-    public function testLicenseRemove()
+    public function testLicenseRemove(): void
     {
         $userId = 123;
         $licenseTypeId = 33;
@@ -91,7 +91,7 @@ class PermanentLicenseTest extends PHPUnitTestCase
         $this->assertEquals(PermanentLicense::REMOVE, $permanentLicense->getLicenseAction());
     }
 
-    public function testLicenseRemoveByParams()
+    public function testLicenseRemoveByParams(): void
     {
         $userId = 123;
         $licenseTypeId = 63;

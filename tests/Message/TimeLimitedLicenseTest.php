@@ -10,7 +10,7 @@ use Serato\UserProfileSdk\Message\TimeLimitedLicense;
 
 class TimeLimitedLicenseTest extends PHPUnitTestCase
 {
-    public function testTimeLimitedLicenseImplicitAdd()
+    public function testTimeLimitedLicenseImplicitAdd(): void
     {
         $userId = 123;
         $licenseTypeId = 61;
@@ -29,7 +29,7 @@ class TimeLimitedLicenseTest extends PHPUnitTestCase
         $this->assertEquals($expiryDate, $timeLimitedLicense->getExpiry());
     }
 
-    public function testTimeLimitedLicenseExplicitAdd()
+    public function testTimeLimitedLicenseExplicitAdd(): void
     {
         $userId = 123;
         $licenseTypeId = 62;
@@ -51,7 +51,7 @@ class TimeLimitedLicenseTest extends PHPUnitTestCase
         $this->assertEquals($expiryDate, $timeLimitedLicense->getExpiry());
     }
 
-    public function testTimeLimitedLicenseRemove()
+    public function testTimeLimitedLicenseRemove(): void
     {
         $userId = 123;
         $licenseTypeId = 61;

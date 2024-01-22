@@ -30,11 +30,12 @@ class SoundPackDownload extends AbstractMessage
      * Creates a new message instance
      *
      * @param int   $userId      User ID
-     * @param array $params      Array of message parameters
+     * @param array<string, mixed> $params      Array of message parameters
      * @return self
      */
     public static function create(int $userId, array $params = []): self
     {
+        /** @phpstan-ignore-next-line */
         return new static($userId, $params);
     }
 

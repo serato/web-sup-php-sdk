@@ -21,11 +21,12 @@ class TrialProductUpdate extends AbstractMessage
      * Creates a new message instance
      *
      * @param int   $userId    User ID
-     * @param array $params      Array of message parameters
+     * @param array<string, mixed> $params      Array of message parameters
      * @return self
      */
-    public static function create(int $userId, array $params = []): self
+    public static function create(int $userId, array $params = [])
     {
+        /** @phpstan-ignore-next-line */
         return new static($userId, $params);
     }
 

@@ -1,6 +1,0 @@
-parameters:
-    visibility_levels: [public, protected]
-    annotation_groups: [todo, deprecated]
-    title: "PHP SUP SDK"
-    base_url: http://docs.serato.net/serato/web-sup-php-sdk/master/
-    overwrite: true

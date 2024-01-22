@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Serato\UserProfileSdk\Queue;
 
-use Aws\Sdk;
 use Aws\Result;
 use Aws\Sqs\SqsClient;
 use Serato\UserProfileSdk\Message\AbstractMessage;
@@ -24,19 +23,19 @@ class Sqs extends AbstractMessageQueue
 {
     private const MAX_BATCH_SIZE = 10;
 
-    /* @var SqsClient */
+    /** @var SqsClient */
     private $sqsClient;
 
-    /* @var string */
+    /** @var string */
     private $sqsQueueName;
 
-    /* @var string */
+    /** @var string */
     private $sqsQueueUrl;
 
-    /* @var array */
+    /** @var array<array> */
     private $messageBatch = [];
 
-    /* @var boolean */
+    /** @var boolean */
     private $fifoQueue = true;
 
     /**
@@ -44,6 +43,7 @@ class Sqs extends AbstractMessageQueue
      *
      * @param SqsClient     $sqsClient      An AWS SDK SQS client instance
      * @param string        $sqsQueueName   Name of SQS queue
+     * @param string        $sqsQueueUrl    URL of SQS queue
      */
     public function __construct(SqsClient $sqsClient, $sqsQueueName, $sqsQueueUrl = null)
     {
@@ -88,8 +88,8 @@ class Sqs extends AbstractMessageQueue
     /**
      * Return an `AbstractMessage` instance from a raw queue message
      *
-     * @param mixed   $sqsMessage   A raw queue message
-     * @param array   $classMap     A map of message types to class names (optional)
+     * @param mixed          $sqsMessage   A raw queue message
+     * @param array<string>   $classMap     A map of message types to class names (optional)
      *
      * @return mixed    An AbstractMessage instance
      *
@@ -126,7 +126,7 @@ class Sqs extends AbstractMessageQueue
      * @param AbstractMessage   $message            Message instance
      * @param string            $batchMessageId     An ID that is unique within a batch of
      *                                              messages (required for batch operations)
-     * @return array
+     * @return array<string, mixed>
      */
     public function messageToSqsSendParams(AbstractMessage $message, string $batchMessageId = null)
     {
@@ -186,7 +186,7 @@ class Sqs extends AbstractMessageQueue
     }
 
     /**
-     * @return Result | null
+     * @return mixed
      */
     private function sendMessageBatch()
     {
@@ -223,7 +223,7 @@ class Sqs extends AbstractMessageQueue
      *
      * @throws QueueSendException
      */
-    private function throwQueueSendException(AwsException $e)
+    private function throwQueueSendException(AwsException $e): void
     {
         $msg = 'Error sending message to SQS queue `' . $this->getRealQueueName() .
                 '`.' . PHP_EOL .
