@@ -5,4 +5,4 @@ parameters:
         - %currentWorkingDirectory%/tests
     treatPhpDocTypesAsCertain: false
 includes:
-        - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
