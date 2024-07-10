@@ -9,3 +9,4 @@ composer.lock
 /reports
 debug.log
 error.log
+/.phpunit.result.cache
