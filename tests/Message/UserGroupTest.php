@@ -7,6 +7,7 @@ namespace Serato\UserProfileSdk\Test\Message;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use Serato\UserProfileSdk\Message\UserGroup;
 use Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException;
+
 class UserGroupTest extends PHPUnitTestCase
 {
     public function testSettersWithCorrectValues(): void
