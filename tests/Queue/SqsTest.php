@@ -10,9 +10,10 @@ use Aws\Result;
 use Aws\MockHandler;
 use Aws\Credentials\CredentialProvider;
 use Aws\Sqs\Exception\SqsException;
+use Serato\UserProfileSdk\Exception\InvalidMessageBodyException;
+use Serato\UserProfileSdk\Exception\QueueSendException;
 use Serato\UserProfileSdk\Queue\Sqs;
 use Serato\UserProfileSdk\Message\AbstractMessage;
-use Serato\UserProfileSdk\Test\Queue\TestMessage;
 use Ramsey\Uuid\Uuid;
 
 class SqsTest extends PHPUnitTestCase
@@ -81,10 +82,11 @@ class SqsTest extends PHPUnitTestCase
     }
 
     /**
-     * @expectedException \Serato\UserProfileSdk\Exception\QueueSendException
+     * @throws \ReflectionException
      */
     public function testSendMessageQueueSendException(): void
     {
+        $this->expectException(QueueSendException::class);
         $this->createAbstractMessageMock(111);
 
         // Create an S3 client so that we can (easily) create an AWS Command object
@@ -107,11 +109,9 @@ class SqsTest extends PHPUnitTestCase
         $this->assertEquals('TestMessageId1', $queue->sendMessage($this->mockMessage));
     }
 
-    /**
-     * @expectedException \Serato\UserProfileSdk\Exception\QueueSendException
-     */
     public function testSendMessageToBatchQueueSendException(): void
     {
+        $this->expectException(QueueSendException::class);
         $this->createAbstractMessageMock(111);
 
         // Create an S3 client so that we can (easily) create an AWS Command object
@@ -134,11 +134,9 @@ class SqsTest extends PHPUnitTestCase
         $queue->sendMessageToBatch($this->mockMessage);
     }
 
-    /**
-     * @expectedException \Serato\UserProfileSdk\Exception\InvalidMessageBodyException
-     */
     public function testCreateMessageWithInvalidMd5(): void
     {
+        $this->expectException(InvalidMessageBodyException::class);
         Sqs::createMessage([
             'Body'      => 'A message body',
             'MD5OfBody' => md5('A different message body')
@@ -237,8 +235,7 @@ class SqsTest extends PHPUnitTestCase
 
         $this->assertTrue(isset($result['Messages']) && count($result['Messages']) > 0);
 
-        /** @phpstan-ignore-next-line */
-        if (isset($result['Messages']) && is_array($result['Messages']) && count($result['Messages']) > 0) {
+        if (isset($result['Messages']) && is_array($result['Messages'])) {
             $message = $result['Messages'][0];
             $this->assertEquals($message['MessageId'], $messageId);
 
@@ -281,14 +278,14 @@ class SqsTest extends PHPUnitTestCase
      *
      * @return int
      */
-    protected function getAwsMockHandlerStackCount()
+    protected function getAwsMockHandlerStackCount(): int
     {
         return $this->mockHandler->count();
     }
 
     /**
      * @param int $userId
-     * @param array<array> $params
+     * @param array<mixed,mixed> $params
      */
     private function createAbstractMessageMock($userId, $params = []): void
     {

@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-version: ['7.1', '7.2']
+        php-version: ['7.1', '8.2']
     steps:
       - uses: actions/checkout@v3 # checkout from repo to github action
       - name: Setup PHP

@@ -6,6 +6,7 @@ namespace Serato\UserProfileSdk\Test\Message;
 
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use Serato\UserProfileSdk\Message\UserGroup;
+use Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException;
 
 class UserGroupTest extends PHPUnitTestCase
 {
@@ -40,11 +41,9 @@ class UserGroupTest extends PHPUnitTestCase
         $this->assertEquals($groups, $userGroup->getGroups());
     }
 
-    /**
-     * @expectedException Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException
-     */
     public function testSettersWithIncorrectValues(): void
     {
+        $this->expectException(InvalidUserGroupMessageException::class);
         $userId = 123;
         $groups = [
             [
@@ -56,11 +55,9 @@ class UserGroupTest extends PHPUnitTestCase
         $userGroup = UserGroup::create($userId)->setGroups($groups);
     }
 
-    /**
-     * @expectedException Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException
-     */
     public function testSettersWithIncorrectValues2(): void
     {
+        $this->expectException(InvalidUserGroupMessageException::class);
         $userId = 123;
         $groups = [
             [
@@ -72,11 +69,9 @@ class UserGroupTest extends PHPUnitTestCase
         $userGroup = UserGroup::create($userId)->setGroups($groups);
     }
 
-    /**
-     * @expectedException Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException
-     */
     public function testSettersWithIncorrectValues3(): void
     {
+        $this->expectException(InvalidUserGroupMessageException::class);
         $userId = 123;
         $groups = [
             ["id" => "invalidData"]
@@ -84,11 +79,9 @@ class UserGroupTest extends PHPUnitTestCase
         $userGroup = UserGroup::create($userId)->setGroups($groups);
     }
 
-    /**
-     * @expectedException Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException
-     */
     public function testSettersWithIncorrectStructure(): void
     {
+        $this->expectException(InvalidUserGroupMessageException::class);
         $userId = 123;
         // Invalid array structure
         $groups = [
@@ -99,11 +92,9 @@ class UserGroupTest extends PHPUnitTestCase
         $userGroup = UserGroup::create($userId)->setGroups($groups);
     }
 
-    /**
-     * @expectedException Serato\UserProfileSdk\Exception\InvalidUserGroupMessageException
-     */
     public function testSettersWithIncorrectStructure2(): void
     {
+        $this->expectException(InvalidUserGroupMessageException::class);
         $userId = 123;
         // Invalid array structure
         $groups = [

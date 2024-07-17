@@ -32,7 +32,7 @@ class Sqs extends AbstractMessageQueue
     /** @var string */
     private $sqsQueueUrl;
 
-    /** @var array<array> */
+    /** @var Array<mixed,mixed> */
     private $messageBatch = [];
 
     /** @var boolean */
