@@ -72,4 +72,30 @@ class TimeLimitedLicenseTest extends PHPUnitTestCase
         $this->assertEquals(TimeLimitedLicense::REMOVE, $timeLimitedLicense->getLicenseAction());
         $this->assertEquals($expiryDate, $timeLimitedLicense->getExpiry());
     }
+
+    public function testTimeLimitedLicenseRemoveActionAfterReceiveMessage(): void
+    {
+        $userId = 123;
+        $licenseTypeId = 61;
+        $now = new DateTime();
+        $expiryTimestamp = $now->getTimestamp();
+        $expiryDate = $now->format(DateTime::ATOM);
+        $licenseId = 'TLL-12345-468787-795825';
+
+        $timeLimitedLicense = TimeLimitedLicense::create(
+            $userId,
+            [
+                'license-type-id' => $licenseTypeId,
+                'license-id' => $licenseId,
+                'expiry' => gmdate(DATE_ATOM, $expiryTimestamp),
+                'license-action' => TimeLimitedLicense::REMOVE
+            ]
+        );
+
+        $this->assertEquals('TimeLimitedLicense', $timeLimitedLicense->getType());
+        $this->assertEquals($licenseTypeId, $timeLimitedLicense->getLicenseTypeId());
+        $this->assertEquals($licenseId, $timeLimitedLicense->getLicenseId());
+        $this->assertEquals(TimeLimitedLicense::REMOVE, $timeLimitedLicense->getLicenseAction());
+        $this->assertEquals($expiryDate, $timeLimitedLicense->getExpiry());
+    }
 }
