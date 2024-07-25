@@ -20,6 +20,9 @@ class TimeLimitedLicense extends AbstractMessage
 
     /**
      * {@inheritdoc}
+     *
+     * The `license-action` parameter is set to `license-action-add` as the default action,
+     * if the action is not specified in the input parameters.
      */
     public function __construct(int $userId, array $params = [])
     {
