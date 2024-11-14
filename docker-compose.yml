@@ -1,10 +1,7 @@
-version: "3.8"
-
 services:
-  php-build:
-    image: "php:${PHP_VERSION:-8.2}-cli"
+  php:
+    image: php:${PHP_VERSION:-8.2.17}-${PHP_VARIANT:-cli}
     command: ["sh", "/srv/php-lib/.docker/setup.sh"]
-    stdin_open: true
     volumes:
+      - ~/.aws/:/root/.aws:ro
       - ./:/srv/php-lib
-      - ${HOME}/.aws/credentials:/root/.aws/credentials
